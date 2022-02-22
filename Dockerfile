@@ -1,3 +1,5 @@
+# TODO: make this a multi-stage build
+# TODO: look into shrinking the size of this container, currently > 3GB!
 FROM ubuntu:latest
 RUN DEBIAN_FRONTEND=noninteractive apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y git ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen python3 python3-pip curl
 RUN cd /var/tmp && curl https://nodejs.org/dist/v16.14.0/node-v16.14.0.tar.gz -o node.tar.gz && tar xvf node.tar.gz && cd node-v16.14.0 && ./configure && make -j12 && make install
